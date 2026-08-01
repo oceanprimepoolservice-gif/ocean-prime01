@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'What\u2019s the difference between pool cleaning and weekly pool service?', answer: 'Cleaning refers to the hands-on tasks \u2014 skimming, vacuuming, brushing \u2014 that are included in every weekly service visit. See our Weekly Pool Service page for the full recurring plan.' },
+  { question: 'Do you offer one-time cleanings?', answer: '[Needs confirmation \u2014 does Ocean Prime offer one-time cleanings separate from weekly plans and green pool cleanups?]' },
+  { question: 'Will cleaning fix cloudy water?', answer: 'Often, yes \u2014 combined with proper chemical balancing. Persistent cloudiness can also point to a filtration issue, which we\u2019ll flag if we see it.' },
+];
+---
+
+<BaseLayout
+  title="Pool Cleaning in Naples, FL | Ocean Prime Pool Service"
+  description="Professional pool cleaning in Naples, Bonita Springs, Estero & Marco Island — skimming, vacuuming, brushing, and basket cleaning."
+  path="/pool-cleaning/"
+>
+  <Breadcrumbs items={[{ label: 'Pool Cleaning', href: '' }]} />
+
+  <section class="section container">
+    <h1>Pool Cleaning in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">Thorough, consistent cleaning that keeps your pool looking the way it should &mdash; every visit, not just when it's convenient.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician cleaning a pool</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>What's Included in a Cleaning Visit</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Skimming the surface for debris</li>
+      <li>Vacuuming the pool floor</li>
+      <li>Brushing walls and the tile line</li>
+      <li>Emptying skimmer and pump baskets</li>
+      <li>Checking water clarity and chemical balance</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Cleaning Is Part of Every Ocean Prime Visit</h2>
+    <p style="max-width: 65ch;">Pool cleaning isn't a separate add-on at Ocean Prime &mdash; it's included in every weekly service visit, along with water testing and an equipment check. <a href="/weekly-pool-service/">See what's included in weekly service &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Pool Cleaning Throughout Southwest Florida</h2>
+    <p>Ocean Prime provides pool cleaning throughout Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Cleaning Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for a Consistently Clean Pool?</h2>
+      <p>Request your free pool evaluation and see which plan fits your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request My Evaluation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

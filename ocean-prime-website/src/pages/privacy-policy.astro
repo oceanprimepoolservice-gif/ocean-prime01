@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Privacy Policy | Ocean Prime Pool Service"
+  description="Ocean Prime Pool Service privacy policy."
+  path="/privacy-policy/"
+>
+  <section class="section container" style="max-width: 720px;">
+    <h1>Privacy Policy</h1>
+    <p style="font-size: var(--fs-small); color: var(--color-ink-muted);">
+      <strong>Note: this is a template draft and has not been reviewed by an attorney. Have this reviewed before publishing.</strong>
+    </p>
+
+    <h2>Information We Collect</h2>
+    <p>When you request a quote or contact us through this website, we collect the information you provide, such as your name, phone number, email address, and service address.</p>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use this information to respond to your request, schedule service, and communicate with you about your account. We do not sell or share your information with third parties for marketing purposes.</p>
+
+    <h2>Data Security</h2>
+    <p>We take reasonable steps to protect the information you share with us. No method of transmission over the internet is completely secure.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have questions about this policy, contact us at {business.email} or {business.phone}.</p>
+
+    <p style="font-size: var(--fs-small); color: var(--color-ink-muted);">Last updated: [DATE]</p>
+  </section>
+</BaseLayout>

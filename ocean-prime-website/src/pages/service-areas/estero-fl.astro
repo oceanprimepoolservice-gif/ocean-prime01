@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { question: 'Do you service newer developments in Estero?', answer: 'Yes \u2014 Estero has grown quickly with newer gated communities, and we service pools throughout the area.' },
+  { question: 'Does new pool equipment still need weekly service?', answer: 'Yes \u2014 even new equipment needs consistent water balancing and inspection. Catching small issues early is what keeps newer equipment lasting as long as it should.' },
+  { question: 'Do you serve both full-time and seasonal Estero residents?', answer: 'Yes \u2014 Estero has a significant seasonal population, and we offer service options for both.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service in Estero, FL | Ocean Prime Pool Service"
+  description="Reliable weekly pool service and equipment repair in Estero, FL. Detailed reports, professional care, and local Southwest Florida experience."
+  path="/service-areas/estero-fl/"
+>
+  <Breadcrumbs items={[
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Estero', href: '' },
+  ]} />
+
+  <section class="section container">
+    <h1>Pool Service in Estero, Florida</h1>
+    <p style="max-width: 60ch;">Dependable weekly pool care and equipment repair for Estero's growing gated and family communities.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Care Built for Estero</h2>
+    <p style="max-width: 65ch;">Estero has grown rapidly, with many newer gated communities and a mix of full-time and seasonal residents. Newer pool equipment doesn't mean maintenance-free &mdash; consistent weekly service is still what catches small issues early and keeps warranties intact.</p>
+    <p style="max-width: 65ch;">Between Southwest Florida's summer rain and year-round heat, water balance can shift quickly without regular attention, regardless of how new the pool is.</p>
+  </section>
+
+  <section class="section container">
+    <h2>Services Available in Estero</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li><a href="/weekly-pool-service/">Weekly Pool Service</a></li>
+      <li><a href="/pool-equipment-repair/">Pool Equipment Repair</a></li>
+      <li><a href="/green-pool-cleanup/">Green Pool Cleanup</a></li>
+      <li><a href="/seasonal-vacation-pool-care/">Seasonal & Vacation Pool Care</a></li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Estero Pool Service Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>

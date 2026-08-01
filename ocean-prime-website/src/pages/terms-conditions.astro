@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Terms & Conditions | Ocean Prime Pool Service"
+  description="Ocean Prime Pool Service terms and conditions."
+  path="/terms-conditions/"
+>
+  <section class="section container" style="max-width: 720px;">
+    <h1>Terms &amp; Conditions</h1>
+    <p style="font-size: var(--fs-small); color: var(--color-ink-muted);">
+      <strong>Note: this is a template draft and has not been reviewed by an attorney. Have this reviewed before publishing.</strong>
+    </p>
+
+    <h2>Services</h2>
+    <p>Ocean Prime Pool Service provides weekly pool cleaning, maintenance, equipment repair, and related services as described on this website and agreed to at the time of booking.</p>
+
+    <h2>Scheduling and Missed Visits</h2>
+    <p>Ocean Prime schedules weekly visits on a consistent basis. If a scheduled visit is missed, the affected account receives a $20 credit.</p>
+
+    <h2>Payment</h2>
+    <p>[Needs confirmation — billing cycle, accepted payment methods, and late payment policy]</p>
+
+    <h2>Cancellation</h2>
+    <p>[Needs confirmation — cancellation notice period and process]</p>
+
+    <h2>Limitation of Liability</h2>
+    <p>[Needs attorney-drafted language]</p>
+
+    <h2>Contact Us</h2>
+    <p>Questions about these terms can be directed to {business.email} or {business.phone}.</p>
+
+    <p style="font-size: var(--fs-small); color: var(--color-ink-muted);">Last updated: [DATE]</p>
+  </section>
+</BaseLayout>

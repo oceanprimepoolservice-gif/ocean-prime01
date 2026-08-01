@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Which type of heater is right for my pool?', answer: 'It depends on your pool size, how quickly you want to heat, and your energy priorities. Gas heaters heat fastest; heat pumps cost less to run over time. We\u2019ll walk through the tradeoffs during your estimate.' },
+  { question: 'How long does installation take?', answer: '[Needs confirmation on typical installation time]' },
+  { question: 'Do I need a permit for a new pool heater?', answer: '[Needs confirmation \u2014 varies by municipality]' },
+  { question: 'What size heater does my pool need?', answer: 'Sizing depends on pool volume, surface area, and how quickly you want it to heat. We\u2019ll calculate this for you on-site.' },
+];
+---
+
+<BaseLayout
+  title="Pool Heater Installation in Naples, FL | Ocean Prime"
+  description="Professional pool heater installation in Naples, Bonita Springs, Estero & Marco Island — gas, heat pump, and electric systems."
+  path="/pool-heater-installation/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Pool Heater Installation in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Professional installation for gas, heat pump, and electric pool heaters.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for an Estimate</a>
+      <a href="#quote-form" class="btn btn--outline">Request an Installation Estimate</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; new pool heater installation</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm heading="Request an Installation Estimate" variant="repair" />
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Choosing the Right Heater</h2>
+    <p>Southwest Florida homeowners typically choose between gas heaters, which heat quickly but cost more to run, and heat pumps, which cost less to operate but heat more gradually. We'll help you weigh the tradeoffs against how you actually use your pool.</p>
+  </section>
+
+  <section class="section container">
+    <h2>What's Included</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>On-site sizing based on your pool's volume and surface area</li>
+      <li>Professional installation and connection</li>
+      <li>System testing before we leave</li>
+      <li>Old unit removal</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Heater Installation Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime installs pool heaters in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Installation Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for a New Pool Heater?</h2>
+      <p>Request an estimate and we'll help you choose the right system for your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request an Installation Estimate</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

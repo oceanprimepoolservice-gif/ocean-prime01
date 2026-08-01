@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import business from '../../data/business.json';
+---
+
+<BaseLayout
+  title="Thank You | Ocean Prime Pool Service"
+  description="Your request has been received."
+  path="/thank-you/service-request/"
+  noindex={true}
+>
+  <section class="section container" style="text-align:center; max-width: 560px; margin: 0 auto;">
+    <h1>Thank You &mdash; Your Request Has Been Received</h1>
+    <p>A member of the Ocean Prime team will review your information and contact you during business hours. For urgent pool equipment concerns, call us directly.</p>
+    <a href={business.phoneHref} class="btn btn--primary">Call {business.phone}</a>
+
+    <div class="card" style="margin-top: var(--space-lg); text-align: left;">
+      <p style="font-weight: 500; margin-bottom: 8px;">What to have ready when we call:</p>
+      <ul style="font-size: var(--fs-small); color: var(--color-ink-secondary); line-height: 1.8;">
+        <li>Your pool's approximate size or gallon count, if known</li>
+        <li>Any equipment brand names visible on your pump, heater, or filter</li>
+        <li>A description of what you're seeing (cloudy water, noise, etc.)</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<script define:vars={{ conversionId: business.googleAdsConversionId, formLabel: business.googleAdsFormSubmitLabel }}>
+  // Guard against duplicate conversions on refresh: only fire once per
+  // completed submission, tracked via sessionStorage rather than a simple
+  // "has this page loaded before" check, since the visitor may legitimately
+  // revisit this page later without having just submitted a new form.
+  const alreadyFired = sessionStorage.getItem('op_thank_you_fired');
+
+  if (!alreadyFired) {
+    sessionStorage.setItem('op_thank_you_fired', 'true');
+
+    window.dataLayer = window.dataLayer || [];
+
+    // GA4 event — this is the primary "completed lead form" conversion.
+    window.dataLayer.push({
+      event: 'form_submit_success',
+      event_category: 'lead',
+      page_path: window.location.pathname,
+    });
+
+    // Google Ads conversion — only fires once conversionId/formLabel are
+    // real values (not the bracketed placeholders), so this is inert until
+    // the Ads account and conversion actions actually exist.
+    if (conversionId && !conversionId.startsWith('[') && formLabel && !formLabel.startsWith('[')) {
+      window.dataLayer.push({
+        event: 'ads_conversion_form_submit',
+        send_to: `${conversionId}/${formLabel}`,
+      });
+    }
+  }
+</script>

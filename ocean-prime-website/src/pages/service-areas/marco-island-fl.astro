@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { question: 'Do you service island and canal-front pools on Marco Island?', answer: 'Yes \u2014 waterfront pools are the norm on Marco Island, and our technicians account for the added salt-air exposure when inspecting equipment.' },
+  { question: 'Does Marco Island have a large seasonal population?', answer: 'Yes \u2014 Marco Island has a significant share of seasonal and vacation homeowners, and we offer service options built around that.' },
+  { question: 'How does being an island affect pool equipment?', answer: 'Constant salt-air exposure accelerates corrosion on pumps, heaters, and metal fixtures compared to inland properties, which is why regular equipment inspection matters even more here.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service in Marco Island, FL | Ocean Prime Pool Service"
+  description="Reliable weekly pool service and equipment repair in Marco Island, FL. Detailed reports, professional care, and local Southwest Florida experience."
+  path="/service-areas/marco-island-fl/"
+>
+  <Breadcrumbs items={[
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Marco Island', href: '' },
+  ]} />
+
+  <section class="section container">
+    <h1>Pool Service in Marco Island, Florida</h1>
+    <p style="max-width: 60ch;">Dependable weekly pool care and equipment repair built around Marco Island's waterfront homes and seasonal residents.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Care Built for Marco Island</h2>
+    <p style="max-width: 65ch;">Nearly every pool on Marco Island deals with constant salt air, which accelerates corrosion on pumps, heaters, and metal fixtures faster than inland properties experience. Regular equipment inspection isn't optional here &mdash; it's what catches that wear before it turns into a failed pump or heater.</p>
+    <p style="max-width: 65ch;">Marco Island also has a substantial seasonal population, and we offer service built around homes that sit vacant for stretches of the year.</p>
+  </section>
+
+  <section class="section container">
+    <h2>Services Available on Marco Island</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li><a href="/weekly-pool-service/">Weekly Pool Service</a></li>
+      <li><a href="/pool-equipment-repair/">Pool Equipment Repair</a></li>
+      <li><a href="/green-pool-cleanup/">Green Pool Cleanup</a></li>
+      <li><a href="/seasonal-vacation-pool-care/">Seasonal & Vacation Pool Care</a></li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Marco Island Pool Service Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>

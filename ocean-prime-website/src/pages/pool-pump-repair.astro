@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Should I repair or replace my pool pump?', answer: "It depends on the pump's age, the cost of the repair, and efficiency. We'll give you a clear recommendation on-site — an aging pump nearing the end of its lifespan is often better replaced with an energy-efficient variable-speed model." },
+  { question: 'Do you offer energy-efficient pump upgrades?', answer: 'Yes — variable-speed pumps can meaningfully reduce energy costs compared to older single-speed models.' },
+  { question: 'How quickly can you come out for a pump repair?', answer: '[Needs confirmation on typical response time]' },
+  { question: 'Do you use OEM parts?', answer: 'We use OEM parts when available and appropriate for your pump model.' },
+  { question: 'Which pump brands do you service?', answer: '[Needs confirmation — list actual supported brands]' },
+];
+---
+
+<!--
+  This page is built as the reusable template for the remaining repair pages
+  (Heater Repair, Filter Repair & Replacement, Salt System Repair, Automation
+  Repair, Pool Light Repair, Pump Replacement, Heater Installation). Swap the
+  H1, symptoms list, and FAQ content per service — structure stays the same.
+-->
+<BaseLayout
+  title="Pool Pump Repair in Naples, FL | Ocean Prime Pool Service"
+  description="Professional pool pump repair in Naples, FL. Fast diagnosis for noisy pumps, low circulation, leaks, and pumps that won't start."
+  path="/pool-pump-repair/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Pool Pump Repair in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Professional troubleshooting and repair for noisy pumps, low circulation, leaks, electrical problems, and pumps that will not start.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for Pump Service</a>
+      <a href="#quote-form" class="btn btn--outline">Request a Repair Appointment</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician repairing a pool pump</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm
+      heading="Request a Repair Appointment"
+      subtext="We'll call to confirm your appointment during business hours."
+      buttonLabel="Request Repair Appointment"
+      variant="repair"
+    />
+  </section>
+
+  <section class="container" style="padding-bottom: var(--space-lg); display:flex; align-items:center; gap:8px;">
+    <span style="color: var(--color-ocean-blue); font-weight:500;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span style="font-size: var(--fs-small); font-weight:500;">
+      {business.googleReviewRating} &middot; {business.googleReviewCount} Google Reviews &mdash; <a href="/reviews/">Read Our Reviews</a>
+    </span>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Signs Your Pool Pump Needs Repair</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Pump won't start</li>
+      <li>Loud grinding, screeching, or rattling noise</li>
+      <li>Leaking around the pump housing or seals</li>
+      <li>Low water flow or weak circulation</li>
+      <li>Air bubbles in the return jets</li>
+      <li>Breaker trips when the pump runs</li>
+      <li>Pump losing prime repeatedly</li>
+      <li>Variable-speed pump errors or display issues</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>What We Check During a Pump Repair Visit</h2>
+    <p>Our technicians diagnose the full system, not just the symptom &mdash; because a noisy pump and a tripping breaker often share the same root cause.</p>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Motor and seal inspection</li>
+      <li>Impeller and basket check for clogs or damage</li>
+      <li>Electrical connection and wiring check</li>
+      <li>Prime and flow testing</li>
+      <li>Clear repair-or-replace recommendation before any work begins</li>
+      <li>OEM parts used when available and appropriate</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Why Homeowners Trust Ocean Prime for Pump Repair</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Experienced technicians who work on major pump brands</li>
+      <li>Clear recommendations &mdash; repair or replace, explained plainly</li>
+      <li>Local knowledge of how Southwest Florida heat and humidity affect equipment</li>
+      <li>The same detailed-report standard applied to repairs, not just weekly service</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Pool Pump Repair Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime provides pool pump repair in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pump Repair Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Get Your Pump Fixed the Right Way</h2>
+      <p>Request a repair appointment and we'll diagnose the problem, explain your options, and get your pool back to full circulation.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Repair Appointment</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Can you service my pool while I\u2019m away for the season?', answer: 'Yes \u2014 weekly service continues on schedule whether or not you\u2019re in town, with your digital report waiting for you either way.' },
+  { question: 'Can you get my pool ready before I arrive?', answer: '[Needs confirmation \u2014 does Ocean Prime offer an arrival-ready prep visit?]' },
+  { question: 'What happens to my pool if it sits unused for months?', answer: 'Without regular service, algae and chemical imbalance can set in within weeks in Southwest Florida\u2019s climate \u2014 which is exactly what consistent seasonal service prevents.' },
+  { question: 'Do you adjust service frequency for vacant homes?', answer: '[Needs confirmation \u2014 does Ocean Prime offer a reduced-frequency plan for vacant seasonal homes?]' },
+];
+---
+
+<BaseLayout
+  title="Seasonal & Vacation Pool Care, Naples FL | Ocean Prime"
+  description="Pool care for seasonal and second-home owners in Naples, Bonita Springs, Estero & Marco Island. Your pool stays ready, whether you're in town or not."
+  path="/seasonal-vacation-pool-care/"
+>
+  <Breadcrumbs items={[{ label: 'Seasonal & Vacation Pool Care', href: '' }]} />
+
+  <section class="section container">
+    <h1>Seasonal &amp; Vacation Pool Care in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">Your pool stays ready, whether you're in town or not &mdash; built for seasonal and second-home owners.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; well-maintained pool at a seasonal residence</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Built for How Seasonal Homeowners Actually Live</h2>
+    <p style="max-width: 65ch;">Whether you're gone for a few months a year or visit unpredictably, Ocean Prime keeps your pool consistently maintained &mdash; not just when someone remembers to check on it. Weekly service continues on schedule, with your digital report waiting for you either way.</p>
+  </section>
+
+  <section class="section container">
+    <h2>What This Means for You</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Consistent weekly care even when you're not there to see it</li>
+      <li>Digital reports so you always know the status remotely</li>
+      <li>A pool that's ready to swim the moment you arrive</li>
+      <li>Local team who knows how Southwest Florida's climate affects vacant pools</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Seasonal Pool Care Throughout Southwest Florida</h2>
+    <p>Ocean Prime provides seasonal and vacation pool care throughout Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Seasonal Care Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for a Pool That's Always Ready?</h2>
+      <p>Request your free pool evaluation and see which plan fits your schedule.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request My Evaluation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="About Ocean Prime Pool Service | Naples, FL"
+  description="Ocean Prime Pool Service is Southwest Florida's dependable partner for weekly pool care, equipment repair, and detailed digital reporting."
+  path="/about/"
+>
+  <Breadcrumbs items={[{ label: 'About', href: '' }]} />
+
+  <section class="section container">
+    <h1>About Ocean Prime Pool Service</h1>
+    <p style="max-width: 65ch;">Ocean Prime Pool Service helps homeowners throughout Naples, Bonita Springs, Estero, and Marco Island enjoy a clean, balanced, worry-free pool through reliable weekly service, professional equipment care, and transparent communication.</p>
+    <div class="image-placeholder">Real photo placeholder &mdash; Ocean Prime team</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Our Approach</h2>
+    <p style="max-width: 65ch;">We built Ocean Prime around a simple idea: homeowners shouldn't have to wonder whether their pool was actually serviced. That's why every visit ends with a detailed digital report &mdash; water chemistry readings, completed tasks, and technician notes &mdash; so you always know exactly what was done.</p>
+    <p style="max-width: 65ch;">We also believe pool care shouldn't require juggling multiple companies. Ocean Prime handles weekly cleaning, maintenance, equipment repair, and renovation, all from one team that knows your pool's history.</p>
+  </section>
+
+  <section class="section container">
+    <h2>What Sets Us Apart</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Detailed digital service reports after every visit</li>
+      <li>Consistent weekly technician, not a rotating roster</li>
+      <li>If we ever miss a visit, you get a $20 credit</li>
+      <li>Cleaning and equipment repair from one company</li>
+      <li>Experience with major pool equipment brands</li>
+      <li>Local knowledge of Southwest Florida pools and climate</li>
+      <li>Service options for full-time and seasonal homeowners</li>
+      <li>{business.insuranceStatement}</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container" style="text-align:center;">
+    <h2>Ready to Get Started?</h2>
+    <a href="/#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

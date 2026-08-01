@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'How long does a green pool cleanup take?', answer: '[Needs confirmation \u2014 typically depends on severity and may take multiple visits]' },
+  { question: 'Will my pool be swimmable right away?', answer: '[Needs confirmation \u2014 depends on chemical balancing timeline after treatment]' },
+  { question: 'What causes a pool to turn green?', answer: 'Algae growth from imbalanced chemicals, poor circulation, or a lapse in regular service \u2014 common after a vacant period or a missed maintenance schedule.' },
+  { question: 'Can you prevent this from happening again?', answer: 'Yes \u2014 once your pool is swim-ready, a weekly service plan keeps water balanced and prevents algae from returning.' },
+];
+---
+
+<BaseLayout
+  title="Green Pool Cleanup in Naples, FL | Ocean Prime Pool Service"
+  description="Professional green pool cleanup in Naples, Bonita Springs, Estero & Marco Island. Bring a neglected or algae-filled pool back to swim-ready condition."
+  path="/green-pool-cleanup/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Green Pool Cleanup in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Bring a neglected or algae-filled pool back to swim-ready condition.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for Cleanup Service</a>
+      <a href="#quote-form" class="btn btn--outline">Request a Cleanup Appointment</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; before/after green pool cleanup</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm heading="Request a Cleanup Appointment" />
+  </section>
+
+  <section class="section section--tint container">
+    <h2>From Green to Swim-Ready</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Full assessment of water condition and equipment</li>
+      <li>Shock treatment and algae removal</li>
+      <li>Filtration run to clear the water</li>
+      <li>Chemical rebalancing to safe, swimmable levels</li>
+      <li>Follow-up recommendation to prevent recurrence</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Why Pools Turn Green</h2>
+    <p style="max-width: 65ch;">A pool left unattended &mdash; during a vacancy, a missed service, or a seasonal absence &mdash; loses chemical balance quickly in Southwest Florida's heat, and algae takes hold fast. The good news: it's fixable, and a weekly plan keeps it from happening again.</p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Green Pool Cleanup Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime provides green pool cleanup in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Cleanup Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Get Your Pool Back to Swim-Ready</h2>
+      <p>Request a cleanup appointment and we'll bring your pool back from green to clear.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Cleanup Appointment</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

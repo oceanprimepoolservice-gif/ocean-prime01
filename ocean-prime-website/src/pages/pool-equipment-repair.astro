@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Do you repair all types of pool equipment?', answer: 'Yes — pumps, heaters, filters, salt systems, automation controls, and pool lighting.' },
+  { question: 'How quickly can you respond to a repair request?', answer: '[Needs confirmation on typical response time]' },
+  { question: 'Do you offer weekly service and repairs from the same company?', answer: 'Yes — Ocean Prime handles both weekly pool care and equipment repair, so you only need one trusted provider.' },
+  { question: 'Do you use OEM parts?', answer: 'We use OEM parts when available and appropriate for your equipment.' },
+];
+---
+
+<BaseLayout
+  title="Pool Equipment Repair in Naples, FL | Ocean Prime"
+  description="Professional pool equipment repair in Naples, Bonita Springs, Estero & Marco Island — pumps, heaters, filters, salt systems, automation, and lighting."
+  path="/pool-equipment-repair/"
+>
+  <Breadcrumbs items={[{ label: 'Pool Equipment Repair', href: '' }]} />
+
+  <section class="section container">
+    <h1>Pool Equipment Repair in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">Fast, professional repair for pumps, heaters, filters, salt systems, automation, and pool lighting — all from one trusted local team.</p>
+    <a href="#quote-form" class="btn btn--primary">Request a Repair Appointment</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician diagnosing pool equipment</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Equipment We Repair</h2>
+    <div class="grid-3" style="display:grid; grid-template-columns: 1fr; gap: var(--space-sm);">
+      <ServiceCard icon="pump" title="Pool Pump Repair" description="Restore circulation, reduce noise, and prevent additional equipment damage." href="/pool-pump-repair/" />
+      <ServiceCard icon="pump" title="Pool Pump Replacement" description="Professional replacement and energy-efficient upgrade options." href="/pool-pump-replacement/" />
+      <ServiceCard icon="heater" title="Pool Heater Repair" description="Get back to a comfortable swim temperature, fast." href="/pool-heater-repair/" />
+      <ServiceCard icon="heater" title="Pool Heater Installation" description="Professional installation for gas, heat pump, and electric systems." href="/pool-heater-installation/" />
+      <ServiceCard icon="filter" title="Filter Repair & Replacement" description="Cleaner water starts with a filter that actually works." href="/pool-filter-repair-replacement/" />
+      <ServiceCard icon="salt" title="Salt System Repair" description="Restore proper chlorine production and fix cell or flow issues." href="/salt-system-repair/" />
+      <ServiceCard icon="automation" title="Pool Automation Repair" description="Get your app-controlled pool functioning the way it should." href="/pool-automation-repair/" />
+      <ServiceCard icon="light" title="Pool Light Repair" description="Safe, professional repair for pool and spa lighting." href="/pool-light-repair/" />
+      <ServiceCard icon="renovation" title="Pool Renovation" description="Resurfacing, tile, coping, decking, and eco drain upgrades." href="/pool-renovation/" />
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2>Why Homeowners Trust Ocean Prime for Repairs</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Experienced technicians who work on major equipment brands</li>
+      <li>Clear repair-or-replace recommendations, explained plainly</li>
+      <li>OEM parts used when available and appropriate</li>
+      <li>The same detailed-report standard applied to repairs as weekly service</li>
+      <li>One company for both weekly care and equipment repair</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm variant="repair" />
+  </section>
+
+  <section class="section container">
+    <h2>Pool Equipment Repair Throughout Southwest Florida</h2>
+    <p>Ocean Prime provides equipment repair throughout Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Equipment Repair Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Get Your Equipment Fixed Right</h2>
+      <p>Request a repair appointment and we'll diagnose the problem and explain your options clearly.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Repair Appointment</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+  @media (min-width: 640px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (min-width: 1024px) {
+    .grid-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  }
+</style>

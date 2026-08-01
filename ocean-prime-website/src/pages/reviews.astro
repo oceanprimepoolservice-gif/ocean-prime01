@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Reviews | Ocean Prime Pool Service"
+  description="See what Naples, Bonita Springs, Estero, and Marco Island homeowners say about Ocean Prime Pool Service."
+  path="/reviews/"
+>
+  <Breadcrumbs items={[{ label: 'Reviews', href: '' }]} />
+
+  <section class="section container">
+    <h1>What Homeowners Say About Ocean Prime</h1>
+    <div style="display:flex; align-items:center; gap:8px; margin-bottom: var(--space-md);">
+      <span style="color: var(--color-ocean-blue); font-weight:500; font-size: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span style="font-weight:500;">{business.googleReviewRating} &middot; {business.googleReviewCount} Google Reviews</span>
+    </div>
+    <a href={business.googleBusinessProfileUrl} class="btn btn--outline" target="_blank" rel="noopener">View on Google</a>
+  </section>
+
+  <section class="section section--tint container">
+    <!--
+      Production note: replace this placeholder grid with real, approved
+      review excerpts once permission is confirmed. Do not publish reviews
+      without the reviewer's/platform's permission, and do not fabricate
+      reviews or counts per the project brief's Section 24.
+    -->
+    <div class="review-placeholder">[PENDING YOUR APPROVAL — insert real, approved review excerpts here]</div>
+  </section>
+
+  <section class="section container" style="text-align:center;">
+    <h2>Ready to Experience It Yourself?</h2>
+    <a href="/#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .review-placeholder {
+    padding: var(--space-lg);
+    text-align: center;
+    border: 1px dashed var(--color-prime-blue-border);
+    border-radius: var(--radius-card);
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+  }
+</style>

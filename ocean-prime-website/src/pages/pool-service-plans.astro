@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PlanCard from '../components/PlanCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Can I change plans later?', answer: '[Needs confirmation — is upgrading/downgrading between plans supported, and how?]' },
+  { question: 'Is there a contract or minimum commitment?', answer: '[Needs confirmation]' },
+  { question: "What's the difference between Basic and Essential?", answer: 'Essential adds a full equipment inspection and a detailed digital report to every visit, so small equipment issues get caught before they become expensive repairs.' },
+  { question: 'Do all plans include chemicals?', answer: '[Needs confirmation]' },
+  { question: 'What if I need a repair outside my plan?', answer: 'Repairs are handled separately from your weekly plan — see our Pool Equipment Repair page, or ask your technician directly during a visit.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service Plans Naples, FL | Ocean Prime Pool Service"
+  description="Compare Ocean Prime's Basic, Essential, and Complete pool service plans for Naples, Bonita Springs, Estero & Marco Island."
+  path="/pool-service-plans/"
+>
+  <Breadcrumbs items={[{ label: 'Pool Service Plans', href: '' }]} />
+
+  <section class="section container">
+    <h1>Pool Service Plans for Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">Three levels of dependable care, one consistent standard &mdash; choose the plan that fits how you use your pool.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Straightforward Plans, No Guesswork</h2>
+      <p style="max-width: 70ch;">Every Ocean Prime plan includes the same standard of professional care &mdash; a consistent weekly technician, clear communication, and a detailed report after every visit. The difference between plans is depth of equipment attention and scheduling priority, not corners cut.</p>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="plan-grid">
+      {business.plans.map((plan) => (
+        <PlanCard
+          name={plan.name}
+          tagline={
+            plan.name === 'Basic' ? 'Reliable weekly care for pools that just need consistent upkeep.' :
+            plan.name === 'Essential' ? 'Our recommended plan — weekly care plus proactive equipment attention.' :
+            'The most comprehensive option for homeowners who want priority attention.'
+          }
+          price={plan.price}
+          featured={plan.popular}
+          features={
+            plan.name === 'Basic' ? ['Weekly on-site visit', 'Vacuuming and basket cleaning', 'Water testing and chemical balancing', 'Visual equipment check'] :
+            plan.name === 'Essential' ? ['Everything in Basic', 'Full equipment inspection each visit', 'Digital service report with photos'] :
+            ['Everything in Essential', 'Priority scheduling', '[Additional benefit — needs confirmation]']
+          }
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Quick Comparison</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse: collapse; font-size: var(--fs-small);">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-border); text-align:left;">
+              <th style="padding: 10px;"></th>
+              <th style="padding: 10px;">Basic</th>
+              <th style="padding: 10px;">Essential</th>
+              <th style="padding: 10px;">Complete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: 10px;">Price</td><td style="padding: 10px;">$130/mo</td><td style="padding: 10px;">$140/mo</td><td style="padding: 10px;">$150/mo</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: 10px;">Weekly visit</td><td style="padding: 10px;">&#10003;</td><td style="padding: 10px;">&#10003;</td><td style="padding: 10px;">&#10003;</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: 10px;">Equipment inspection</td><td style="padding: 10px;">Visual check</td><td style="padding: 10px;">Full inspection</td><td style="padding: 10px;">Full inspection</td></tr>
+            <tr style="border-bottom: 1px solid var(--color-border);"><td style="padding: 10px;">Digital service report</td><td style="padding: 10px;">&mdash;</td><td style="padding: 10px;">&#10003;</td><td style="padding: 10px;">&#10003;</td></tr>
+            <tr><td style="padding: 10px;">Priority scheduling</td><td style="padding: 10px;">&mdash;</td><td style="padding: 10px;">&mdash;</td><td style="padding: 10px;">&#10003;</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" style="text-align:center;">
+    <h2>Let Us Recommend the Right Plan</h2>
+    <p style="max-width: 60ch; margin-left:auto; margin-right:auto;">Every pool is different. Request a free evaluation and we'll recommend the plan that matches your pool's size, equipment, and usage &mdash; no pressure, no upsell.</p>
+    <a href="#quote-form" class="btn btn--primary">Request My Free Evaluation</a>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Plan Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>
+
+<style>
+  .plan-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  @media (min-width: 1024px) {
+    .plan-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Page Not Found | Ocean Prime Pool Service"
+  description="The page you're looking for couldn't be found."
+  path="/404/"
+  noindex={true}
+>
+  <section class="section container" style="text-align:center;">
+    <h1>Page Not Found</h1>
+    <p>The page you're looking for may have moved. Try one of these instead:</p>
+    <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap; margin-top: var(--space-sm);">
+      <a href="/" class="btn btn--primary">Go Home</a>
+      <a href="/pool-service-plans/" class="btn btn--outline">View Service Plans</a>
+      <a href={business.phoneHref} class="btn btn--outline">Call {business.phone}</a>
+    </div>
+  </section>
+</BaseLayout>

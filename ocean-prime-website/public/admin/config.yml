@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "business"
+    label: "Business Settings"
+    files:
+      - file: "src/data/business.json"
+        label: "Business Info (phone, hours, pricing, reviews)"
+        name: "business"
+        fields:
+          - { label: "Business Name", name: "businessName", widget: "string" }
+          - { label: "Phone (display)", name: "phone", widget: "string" }
+          - { label: "Phone (tel: link)", name: "phoneHref", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Business Hours", name: "hours", widget: "string" }
+          - { label: "License Statement", name: "licenseStatement", widget: "string" }
+          - { label: "Insurance Statement", name: "insuranceStatement", widget: "string" }
+          - { label: "Google Review Rating", name: "googleReviewRating", widget: "string" }
+          - { label: "Google Review Count", name: "googleReviewCount", widget: "string" }
+          - { label: "Google Business Profile URL", name: "googleBusinessProfileUrl", widget: "string" }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string" }
+          - { label: "Instagram URL", name: "instagramUrl", widget: "string" }
+          - label: "Service Plans"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Price (per month)", name: "price", widget: "number" }
+              - { label: "Mark as Most Popular", name: "popular", widget: "boolean" }
+
+# Note: this config assumes Netlify Identity + Git Gateway for authentication,
+# which requires a one-time setup step on Netlify's dashboard after deploy.
+# See README.md "Editing content later" for the walkthrough.

@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { question: 'Do you service gulf-front and canal-front pools in Naples?', answer: 'Yes \u2014 waterfront pools are common throughout Naples, and our technicians are experienced with the extra salt-air exposure they face.' },
+  { question: 'How does Naples\u2019 climate affect my pool?', answer: 'Intense summer heat and heavy seasonal rain both accelerate chemical imbalance, which is why consistent weekly service matters more here than in milder climates.' },
+  { question: 'Do you serve gated communities in Naples?', answer: 'Yes \u2014 we regularly service pools throughout Naples\u2019 gated and waterfront neighborhoods.' },
+  { question: 'Can you service my Naples home while I\u2019m away for the season?', answer: 'Yes \u2014 see our Seasonal & Vacation Pool Care page for details.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service in Naples, FL | Ocean Prime Pool Service"
+  description="Reliable weekly pool service and equipment repair in Naples, FL. Detailed reports, professional care, and local Southwest Florida experience."
+  path="/service-areas/naples-fl/"
+>
+  <Breadcrumbs items={[
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Naples', href: '' },
+  ]} />
+
+  <section class="section container">
+    <h1>Pool Service in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Reliable weekly pool care and equipment repair for Naples homeowners &mdash; from gulf-front estates to inland family neighborhoods.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Care Built for Naples</h2>
+    <p style="max-width: 65ch;">Naples' pools range from gulf-front and canal-front properties, where salt air accelerates equipment wear, to inland homes dealing with heavy afternoon rain during summer months. Both situations call for the same thing: a technician who shows up consistently and catches small problems before they become expensive ones.</p>
+    <p style="max-width: 65ch;">Naples is also home to a significant seasonal population &mdash; homeowners who split time between Florida and elsewhere, and need a pool that's ready the moment they arrive rather than a project waiting for them.</p>
+  </section>
+
+  <section class="section container">
+    <h2>Services Available in Naples</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li><a href="/weekly-pool-service/">Weekly Pool Service</a></li>
+      <li><a href="/pool-equipment-repair/">Pool Equipment Repair</a></li>
+      <li><a href="/green-pool-cleanup/">Green Pool Cleanup</a></li>
+      <li><a href="/seasonal-vacation-pool-care/">Seasonal & Vacation Pool Care</a></li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Naples Pool Service Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>

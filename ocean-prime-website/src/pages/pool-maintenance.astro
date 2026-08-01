@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'What\u2019s included in pool maintenance beyond cleaning?', answer: 'Water chemistry balancing, equipment inspection, and preventive checks that catch small issues before they become expensive repairs.' },
+  { question: 'How does Southwest Florida\u2019s climate affect pool maintenance?', answer: 'Heavy rain dilutes chemical balance, intense heat accelerates chlorine loss, and high humidity puts extra wear on equipment \u2014 all reasons consistent maintenance matters more here than in milder climates.' },
+  { question: 'Do you maintain saltwater pools?', answer: 'Yes.' },
+];
+---
+
+<BaseLayout
+  title="Pool Maintenance in Naples, FL | Ocean Prime Pool Service"
+  description="Professional pool maintenance in Naples, Bonita Springs, Estero & Marco Island — water chemistry, equipment checks, and preventive care."
+  path="/pool-maintenance/"
+>
+  <Breadcrumbs items={[{ label: 'Pool Maintenance', href: '' }]} />
+
+  <section class="section container">
+    <h1>Pool Maintenance in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">Beyond cleaning &mdash; the water chemistry balancing and equipment attention that keeps a pool healthy long-term.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician testing pool water chemistry</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>What Pool Maintenance Covers</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Water testing and chemical balancing</li>
+      <li>Visual equipment inspection</li>
+      <li>Filter condition checks</li>
+      <li>Preventive attention that catches problems before they become expensive</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Why Southwest Florida Pools Need Consistent Maintenance</h2>
+    <p style="max-width: 65ch;">Heavy rain dilutes chemical balance, intense heat accelerates chlorine loss, and high humidity puts extra wear on equipment. A pool in Naples, Bonita Springs, Estero, or Marco Island needs more consistent attention than the same pool in a milder climate.</p>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Pool Maintenance Throughout Southwest Florida</h2>
+    <p>Ocean Prime provides pool maintenance throughout Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Maintenance Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for a Well-Maintained Pool?</h2>
+      <p>Request your free pool evaluation and see which plan fits your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request My Evaluation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

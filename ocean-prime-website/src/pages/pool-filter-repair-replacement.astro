@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'How often should a cartridge filter be replaced?', answer: '[Needs confirmation \u2014 typical guidance varies by usage and filter type]' },
+  { question: 'What\u2019s the difference between cartridge, DE, and sand filters?', answer: 'Each filters to a different level of fineness and requires different maintenance \u2014 we\u2019ll tell you what type you have and what it needs.' },
+  { question: 'Why is my pool cloudy even though I clean the filter?', answer: 'A worn filter element, a cracked housing, or a multiport valve issue can all cause cloudy water even with regular cleaning \u2014 we\u2019ll diagnose the actual cause.' },
+  { question: 'Do you replace filter housings, not just the cartridge?', answer: 'Yes \u2014 we handle both cleaning/replacement of filter media and repair or replacement of the housing and valve when needed.' },
+];
+---
+
+<BaseLayout
+  title="Pool Filter Repair & Replacement, Naples FL | Ocean Prime"
+  description="Professional pool filter repair and replacement in Naples, Bonita Springs, Estero & Marco Island — cartridge, DE, and sand filters."
+  path="/pool-filter-repair-replacement/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Pool Filter Repair &amp; Replacement in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Cartridge, DE, and sand filter repair, cleaning, and replacement to keep your water clear.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for Filter Service</a>
+      <a href="#quote-form" class="btn btn--outline">Request a Repair Appointment</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician servicing a pool filter</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm heading="Request a Repair Appointment" variant="repair" />
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Signs Your Filter Needs Attention</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Clogged or restricted flow</li>
+      <li>Cloudy water despite regular cleaning</li>
+      <li>High pressure gauge readings</li>
+      <li>Cracked or damaged filter housing</li>
+      <li>Multiport valve leaking or stuck</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>What's Included</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Filter type and condition assessment</li>
+      <li>Cleaning, element replacement, or full filter replacement as needed</li>
+      <li>Pressure testing before we leave</li>
+      <li>Valve and housing inspection</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Filter Service Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime services pool filters in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Filter Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Get Clearer Water, Faster</h2>
+      <p>Request a repair appointment and we'll get your filtration back to full performance.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Repair Appointment</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

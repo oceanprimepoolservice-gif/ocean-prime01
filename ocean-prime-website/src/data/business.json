@@ -1,0 +1,30 @@
+{
+  "businessName": "Ocean Prime Pool Service",
+  "phone": "(239) 378-4303",
+  "phoneHref": "tel:2393784303",
+  "email": "[BUSINESS_EMAIL]",
+  "hours": "[BUSINESS_HOURS]",
+  "licenseStatement": "[LICENSE_NUMBER — confirm before launch]",
+  "insuranceStatement": "Licensed & Insured",
+  "serviceAreas": ["Naples", "Bonita Springs", "Estero", "Marco Island"],
+  "googleReviewRating": "[GOOGLE_REVIEW_RATING]",
+  "googleReviewCount": "[GOOGLE_REVIEW_COUNT]",
+  "googleBusinessProfileUrl": "[GOOGLE_BUSINESS_PROFILE_URL]",
+  "facebookUrl": "[FACEBOOK_URL]",
+  "instagramUrl": "https://www.instagram.com/oceanprimepoolservice/",
+  "gtmId": "[GTM_CONTAINER_ID]",
+  "googleAdsConversionId": "[GOOGLE_ADS_CONVERSION_ID]",
+  "googleAdsPhoneCallLabel": "[GOOGLE_ADS_PHONE_CALL_CONVERSION_LABEL]",
+  "googleAdsFormSubmitLabel": "[GOOGLE_ADS_FORM_SUBMIT_CONVERSION_LABEL]",
+  "colors": {
+    "white": "#FFFFFF",
+    "primeBlue": "#279DF4",
+    "oceanBlue": "#0F7BE5",
+    "ink": "#16232E"
+  },
+  "plans": [
+    { "name": "Basic", "price": 130, "popular": false },
+    { "name": "Essential", "price": 140, "popular": true },
+    { "name": "Complete", "price": 150, "popular": false }
+  ]
+}

@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'How do I know if I need a replacement instead of a repair?', answer: "If your pump is older than 8-10 years, needs frequent repairs, or repair costs approach the price of a new unit, replacement is usually the better value. We'll give you a clear recommendation on-site." },
+  { question: 'What are the benefits of a variable-speed pump?', answer: 'Variable-speed pumps run at lower speeds for routine circulation, which can meaningfully reduce energy costs compared to older single-speed models.' },
+  { question: 'How long does a pump replacement take?', answer: '[Needs confirmation on typical installation time]' },
+  { question: 'Do you haul away the old pump?', answer: '[Needs confirmation]' },
+  { question: 'Which pump brands do you install?', answer: '[Needs confirmation — list actual supported brands]' },
+];
+---
+
+<BaseLayout
+  title="Pool Pump Replacement in Naples, FL | Ocean Prime"
+  description="Professional pool pump replacement and energy-efficient upgrade options in Naples, Bonita Springs, Estero & Marco Island."
+  path="/pool-pump-replacement/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Pool Pump Replacement in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Professional pump replacement and energy-efficient upgrade options when repair isn't the right call anymore.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for Pump Replacement</a>
+      <a href="#quote-form" class="btn btn--outline">Request a Replacement Estimate</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; new pool pump installation</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm heading="Request a Replacement Estimate" buttonLabel="Request Estimate" variant="repair" />
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Signs It's Time to Replace, Not Repair</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Pump is beyond typical repair life (often 8-10+ years old)</li>
+      <li>Frequent, recurring breakdowns</li>
+      <li>Outdated single-speed pump driving up energy bills</li>
+      <li>Repair cost approaching the price of a new unit</li>
+      <li>Replacement parts no longer available for the model</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>What's Included</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>On-site assessment of your current system</li>
+      <li>Correct sizing for your pool's plumbing and equipment</li>
+      <li>Professional installation</li>
+      <li>System testing and prime check before we leave</li>
+      <li>Energy-efficient variable-speed options available</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Pump Replacement Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime provides pump replacement in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Replacement Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Get a Clear Recommendation, Not a Sales Pitch</h2>
+      <p>Request an estimate and we'll tell you honestly whether repair or replacement makes more sense for your pump.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Replacement Estimate</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

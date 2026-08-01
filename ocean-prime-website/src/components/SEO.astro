@@ -1,0 +1,83 @@
+---
+import business from '../data/business.json';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string; // e.g. "/pool-pump-repair/"
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, path, ogImage = '/images/og-default.jpg', noindex = false } = Astro.props;
+const canonicalURL = new URL(path, Astro.site);
+const isHomepage = path === '/';
+
+// Service Area Business — no public address, per project decision.
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Pool cleaning and repair service',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: business.businessName,
+    telephone: business.phone,
+    areaServed: business.serviceAreas.map((area) => ({
+      '@type': 'City',
+      name: area,
+    })),
+    priceRange: '$$',
+  },
+};
+
+// Organization schema — the business entity itself, included site-wide so
+// every page reinforces the same entity to search engines. Kept separate
+// from the Service schema above rather than merged, since Service/Organization
+// serve different query types (service-intent vs. brand/entity lookups).
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: business.businessName,
+  url: Astro.site?.toString(),
+  telephone: business.phone,
+  sameAs: [business.googleBusinessProfileUrl, business.facebookUrl, business.instagramUrl].filter(
+    (url) => url && !url.startsWith('[')
+  ),
+};
+
+// WebSite schema — homepage only. This is what can surface a sitelinks
+// search box in results; repeating it on every page is redundant rather
+// than helpful, so it's gated behind isHomepage.
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: business.businessName,
+  url: Astro.site?.toString(),
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Search engine verification — replace with real codes once accounts exist -->
+<meta name="google-site-verification" content="[GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE]" />
+<meta name="msvalidate.01" content="[BING_WEBMASTER_VERIFICATION_CODE]" />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={new URL(ogImage, Astro.site)} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+<!-- Structured data -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+{isHomepage && <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />}

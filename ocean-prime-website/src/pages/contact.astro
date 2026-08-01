@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import business from '../data/business.json';
+---
+
+<BaseLayout
+  title="Contact Ocean Prime Pool Service | Naples, FL"
+  description="Contact Ocean Prime Pool Service for weekly pool care or equipment repair in Naples, Bonita Springs, Estero & Marco Island."
+  path="/contact/"
+>
+  <Breadcrumbs items={[{ label: 'Contact', href: '' }]} />
+
+  <section class="section container">
+    <h1>Contact Ocean Prime Pool Service</h1>
+    <p style="max-width: 60ch;">Have a question, or ready to get started? Reach out and we'll respond during business hours.</p>
+
+    <div class="contact-grid">
+      <div class="card">
+        <p style="font-weight:500; margin-bottom: 12px;">Contact Details</p>
+        <p style="font-size: var(--fs-small);"><a href={business.phoneHref}>{business.phone}</a></p>
+        <p style="font-size: var(--fs-small);"><a href={`mailto:${business.email}`}>{business.email}</a></p>
+        <p style="font-size: var(--fs-small); color: var(--color-ink-secondary);">{business.hours}</p>
+        <p style="font-size: var(--fs-small); color: var(--color-ink-secondary);">Serving {business.serviceAreas.join(', ')}</p>
+      </div>
+      <QuoteForm heading="Send Us a Message" buttonLabel="Send Message" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+  @media (min-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.5fr;
+    }
+  }
+</style>

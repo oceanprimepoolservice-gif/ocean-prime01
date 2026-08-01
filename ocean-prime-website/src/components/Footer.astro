@@ -1,0 +1,115 @@
+---
+import business from '../data/business.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__col">
+      <p class="site-footer__brand">{business.businessName}</p>
+      <p><a href={business.phoneHref}>{business.phone}</a></p>
+      <p><a href={`mailto:${business.email}`}>{business.email}</a></p>
+      <p>{business.hours}</p>
+      <p class="site-footer__insurance">{business.insuranceStatement}</p>
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Service Areas</p>
+      {business.serviceAreas.map((area) => (
+        <p><a href={`/service-areas/${area.toLowerCase().replace(/\s+/g, '-')}-fl/`}>{area}</a></p>
+      ))}
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Pool Service</p>
+      <p><a href="/weekly-pool-service/">Weekly Pool Service</a></p>
+      <p><a href="/pool-service-plans/">Service Plans</a></p>
+      <p><a href="/green-pool-cleanup/">Green Pool Cleanup</a></p>
+      <p><a href="/pool-equipment-repair/">Equipment Repair</a></p>
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Company</p>
+      <p><a href="/about/">About</a></p>
+      <p><a href="/reviews/">Reviews</a></p>
+      <p><a href="/contact/">Contact</a></p>
+      <p><a href="/privacy-policy/">Privacy Policy</a></p>
+      <p><a href="/terms-conditions/">Terms & Conditions</a></p>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} {business.businessName}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-white);
+    padding: var(--space-lg) 0 var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .site-footer__col p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--fs-small);
+    margin: 0 0 8px;
+  }
+
+  .site-footer__col a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .site-footer__col a:hover {
+    color: var(--color-prime-blue);
+  }
+
+  .site-footer__brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-white) !important;
+  }
+
+  .site-footer__heading {
+    font-weight: 500;
+    color: var(--color-white) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .site-footer__insurance {
+    margin-top: 12px !important;
+    font-size: 12px !important;
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+  }
+
+  .site-footer__bottom p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

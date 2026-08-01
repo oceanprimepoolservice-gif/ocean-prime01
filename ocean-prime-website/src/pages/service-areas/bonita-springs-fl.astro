@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+import business from '../../data/business.json';
+
+const faqs = [
+  { question: 'Do you service pools in Bonita Springs\u2019 gated communities?', answer: 'Yes \u2014 gated and master-planned communities make up a large share of the homes we service in Bonita Springs.' },
+  { question: 'How does Bonita Springs\u2019 climate affect pool maintenance?', answer: 'Like the rest of Southwest Florida, heavy summer rain and high humidity accelerate chemical imbalance and put extra wear on equipment.' },
+  { question: 'Do you service canal-front homes in Bonita Springs?', answer: 'Yes \u2014 canal-front pools are common in Bonita Springs and require the same salt-air-aware equipment care as coastal properties.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service in Bonita Springs, FL | Ocean Prime"
+  description="Reliable weekly pool service and equipment repair in Bonita Springs, FL. Detailed reports, professional care, and local Southwest Florida experience."
+  path="/service-areas/bonita-springs-fl/"
+>
+  <Breadcrumbs items={[
+    { label: 'Service Areas', href: '/service-areas/' },
+    { label: 'Bonita Springs', href: '' },
+  ]} />
+
+  <section class="section container">
+    <h1>Pool Service in Bonita Springs, Florida</h1>
+    <p style="max-width: 60ch;">Dependable weekly pool care and equipment repair for Bonita Springs' gated communities and canal-front neighborhoods.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Care Built for Bonita Springs</h2>
+    <p style="max-width: 65ch;">Bonita Springs is one of Southwest Florida's fastest-growing communities, with a mix of established gated neighborhoods and newer developments. Many homes here sit along canals, which means pool equipment faces the same salt-air exposure as coastal properties &mdash; without homeowners always realizing it until a pump or heater fails early.</p>
+    <p style="max-width: 65ch;">Consistent weekly service catches that wear before it becomes an expensive repair, and keeps water balanced through Bonita Springs' heavy summer rain season.</p>
+  </section>
+
+  <section class="section container">
+    <h2>Services Available in Bonita Springs</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li><a href="/weekly-pool-service/">Weekly Pool Service</a></li>
+      <li><a href="/pool-equipment-repair/">Pool Equipment Repair</a></li>
+      <li><a href="/green-pool-cleanup/">Green Pool Cleanup</a></li>
+      <li><a href="/seasonal-vacation-pool-care/">Seasonal & Vacation Pool Care</a></li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm />
+  </section>
+
+  <section class="section container">
+    <h2>Bonita Springs Pool Service Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>

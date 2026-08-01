@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'Why won\u2019t my heater reach the set temperature?', answer: 'This is often caused by low flow, a dirty filter restricting water movement, an ignition or sensor problem, or a heater that\u2019s undersized for the pool. We\u2019ll diagnose the specific cause on-site.' },
+  { question: 'What\u2019s the difference between gas and heat pump repair?', answer: 'Gas heaters and heat pumps have different components and failure points \u2014 our technicians are experienced with both.' },
+  { question: 'How fast can I expect heat to return after a repair?', answer: '[Needs confirmation \u2014 typically depends on pool volume and heater type]' },
+  { question: 'Is my heater worth repairing or should I replace it?', answer: 'We\u2019ll give you a clear recommendation based on age, repair cost, and efficiency \u2014 see our Heater Installation page for replacement options.' },
+];
+---
+
+<BaseLayout
+  title="Pool Heater Repair in Naples, FL | Ocean Prime Pool Service"
+  description="Professional pool heater repair in Naples, FL. Fast diagnosis for heaters that won't start, won't heat, or show error codes."
+  path="/pool-heater-repair/"
+  simplifiedHeader={true}
+>
+  <section class="section container">
+    <h1>Pool Heater Repair in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Professional repair for heaters that won't start, won't reach temperature, or show error codes.</p>
+    <div style="display:flex; gap: var(--space-xs); flex-wrap:wrap;">
+      <a href={business.phoneHref} class="btn btn--primary">Call for Heater Service</a>
+      <a href="#quote-form" class="btn btn--outline">Request a Repair Appointment</a>
+    </div>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician servicing a pool heater</div>
+  </section>
+
+  <section class="section container">
+    <QuoteForm heading="Request a Repair Appointment" variant="repair" />
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Signs Your Pool Heater Needs Repair</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Heater won't start</li>
+      <li>Not reaching set temperature</li>
+      <li>Error codes on the display</li>
+      <li>Low water flow through the heater</li>
+      <li>Ignition problems (gas heaters)</li>
+      <li>Heat pump not producing warm air output</li>
+      <li>Visible corrosion on the unit</li>
+      <li>Temperature sensor acting erratically</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>What We Check</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Ignition and pilot system (gas heaters)</li>
+      <li>Temperature sensor accuracy</li>
+      <li>Water flow and filter condition</li>
+      <li>Electrical and gas connections</li>
+      <li>Clear repair-or-replace recommendation</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Pool Heater Repair Throughout Southwest Florida</h2>
+    <p>In addition to Naples, Ocean Prime repairs pool heaters in Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Heater Repair Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Get Back to a Comfortable Swim Temperature</h2>
+      <p>Request a repair appointment and we'll diagnose the issue and explain your options.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Repair Appointment</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

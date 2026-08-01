@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'What is included in weekly pool service?', answer: 'Skimming, vacuuming, brushing, basket cleaning, water testing, chemical balancing, and a visual equipment check — with a digital report after every visit.' },
+  { question: 'Are pool chemicals included?', answer: '[Needs confirmation]' },
+  { question: 'Do you service saltwater pools?', answer: 'Yes.' },
+  { question: 'What happens if a visit is missed?', answer: "You receive a $20 credit toward your account. We'd rather make it right than make excuses." },
+  { question: 'Can you service a seasonal or second-home residence?', answer: 'Yes — Ocean Prime offers service options for full-time and seasonal homeowners.' },
+  { question: 'How is weekly service different from the Complete plan?', answer: 'Weekly visits are included in every plan — Basic, Essential, and Complete differ in equipment inspection depth, reporting, and scheduling priority.' },
+  { question: 'Which equipment brands do you work with?', answer: '[Needs confirmation]' },
+];
+---
+
+<BaseLayout
+  title="Weekly Pool Service in Naples, FL | Ocean Prime Pool Service"
+  description="Reliable weekly pool cleaning in Naples, Bonita Springs, Estero & Marco Island. Water testing, equipment checks, and a report after every visit."
+  path="/weekly-pool-service/"
+>
+  <Breadcrumbs items={[{ label: 'Weekly Pool Service', href: '' }]} />
+
+  <section class="section container">
+    <h1>Weekly Pool Service in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="max-width: 60ch;">The same technician, the same standard, every week &mdash; with a detailed report so you always know your pool was taken care of.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; technician performing weekly service</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>What Happens During Your Weekly Visit</h2>
+    <p>Every Ocean Prime visit follows the same standard, whether it's your first week with us or your fiftieth.</p>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Skimming and debris removal</li>
+      <li>Vacuuming the pool floor</li>
+      <li>Brushing walls and tile line as needed</li>
+      <li>Emptying skimmer and pump baskets</li>
+      <li>Water testing and chemical balancing</li>
+      <li>Visual equipment check</li>
+      <li>Digital report sent after the visit</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Built for the Way You Actually Use Your Pool</h2>
+    <p style="max-width: 70ch;">Weekly service works for full-time homeowners who want one less thing to think about, and for seasonal or second-home owners who need a pool that's ready the moment they arrive. It's also for anyone who's dealt with a previous provider who skipped visits, left the water cloudy, or never explained what was actually done.</p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Why "Weekly" Actually Means Weekly</h2>
+    <p>Inconsistent service is how small problems turn into expensive ones &mdash; a missed visit lets algae take hold, an unchecked filter loses efficiency, and a skipped equipment glance means a failing pump gets discovered only after it's already failed.</p>
+    <p>Ocean Prime provides dependable weekly care on a consistent schedule, with the same technician bringing the same standard every time.</p>
+    <p>After every visit, you receive a digital report with water chemistry readings, completed tasks, and technician notes &mdash; so nothing is left to guesswork.</p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+  </section>
+
+  <section class="section container">
+    <h2>See Exactly What Was Done, Every Time</h2>
+    <p style="max-width: 65ch;">After each visit, you'll receive a report showing water chemistry readings, the tasks completed, technician notes, and photos when relevant. No more wondering whether your pool was actually serviced this week.</p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Serving Naples, Bonita Springs, Estero &amp; Marco Island</h2>
+    <p>Ocean Prime provides weekly pool service throughout Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section container">
+    <h2>Weekly Service Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section container">
+    <QuoteForm />
+  </section>
+
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for Pool Service You Can Count On?</h2>
+      <p>Request your free pool evaluation and see which plan fits your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request My Evaluation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

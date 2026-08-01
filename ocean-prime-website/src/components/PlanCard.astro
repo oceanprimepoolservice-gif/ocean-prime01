@@ -1,0 +1,72 @@
+---
+interface Props {
+  name: string;
+  tagline: string;
+  price: number;
+  features: string[];
+  featured?: boolean;
+}
+
+const { name, tagline, price, features, featured = false } = Astro.props;
+---
+
+<div class:list={['card', 'plan-card', { 'card--featured': featured }]}>
+  {featured && <span class="card__badge">Most Popular</span>}
+  <p class="plan-card__name">{name}</p>
+  <p class="plan-card__tagline">{tagline}</p>
+  <p class="plan-card__price">Starting at ${price}/mo</p>
+  <ul class="plan-card__features">
+    {features.map((f) => <li>{f}</li>)}
+  </ul>
+  <a href="#quote-form" class:list={['btn', 'btn--block', featured ? 'btn--primary' : 'btn--outline']}>
+    Get My Pool Service Quote
+  </a>
+</div>
+
+<style>
+  .plan-card__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-ink);
+    margin: 8px 0 4px;
+  }
+
+  .plan-card__tagline {
+    font-size: var(--fs-small);
+    margin-bottom: 12px;
+  }
+
+  .plan-card__price {
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-ocean-blue);
+    margin-bottom: 16px;
+  }
+
+  .plan-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+
+  .plan-card__features li {
+    font-size: var(--fs-small);
+    color: var(--color-ink-secondary);
+    padding-left: 22px;
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  .plan-card__features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-prime-blue-tint);
+    border: 1.5px solid var(--color-ocean-blue);
+  }
+</style>

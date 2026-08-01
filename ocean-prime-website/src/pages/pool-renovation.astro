@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'What does pool renovation include?', answer: 'Resurfacing, tile installation, coping, decking, and eco drain upgrades \u2014 individually or as a complete refresh.' },
+  { question: 'How do I know if I need resurfacing or just repairs?', answer: 'Rough or discolored surfaces, chipping, and staining that cleaning can\u2019t fix are signs it\u2019s time to resurface rather than patch. We\u2019ll give you a clear recommendation during your consultation.' },
+  { question: 'What are eco drains and why would I need one?', answer: 'Eco drains improve deck drainage around the pool, reducing standing water and the algae and slip hazards it can cause \u2014 especially relevant given Southwest Florida\u2019s heavy seasonal rain.' },
+  { question: 'How long does a renovation take?', answer: '[Needs confirmation \u2014 timeline varies significantly by scope]' },
+  { question: 'Can I keep using my pool during renovation?', answer: '[Needs confirmation \u2014 depends on which services are being performed]' },
+  { question: 'Do you handle permits for renovation work?', answer: '[Needs confirmation \u2014 varies by scope and municipality]' },
+];
+---
+
+<BaseLayout
+  title="Pool Renovation in Naples, FL | Ocean Prime Pool Service"
+  description="Professional pool renovation in Naples, Bonita Springs, Estero & Marco Island — resurfacing, tile installation, coping, decking, and eco drains."
+  path="/pool-renovation/"
+>
+  <Breadcrumbs items={[{ label: 'Pool Renovation', href: '' }]} />
+
+  <section class="section container">
+    <h1>Pool Renovation in Naples, Florida</h1>
+    <p style="max-width: 60ch;">Professional resurfacing, tile, coping, decking, and drainage upgrades to refresh and modernize your pool.</p>
+    <a href="#quote-form" class="btn btn--primary">Request a Renovation Consultation</a>
+    <div class="image-placeholder">Real photo placeholder &mdash; before/after pool renovation</div>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Renovation Services</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li><strong>Resurfacing</strong> &mdash; restore a smooth, clean finish and address staining, chipping, or roughness</li>
+      <li><strong>Tile Installation</strong> &mdash; replace or upgrade waterline and decorative tile</li>
+      <li><strong>Coping</strong> &mdash; repair or replace the pool's edge for a clean, finished look</li>
+      <li><strong>Decking</strong> &mdash; refresh or replace the surface surrounding your pool</li>
+      <li><strong>Eco Drains</strong> &mdash; improve deck drainage and reduce standing water around the pool</li>
+    </ul>
+  </section>
+
+  <section class="section container">
+    <h2>Signs It's Time to Renovate</h2>
+    <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+      <li>Rough, chipped, or discolored pool surface</li>
+      <li>Cracked, loose, or outdated tile</li>
+      <li>Damaged or uneven coping</li>
+      <li>Cracked, stained, or slippery decking</li>
+      <li>Standing water or poor drainage around the pool</li>
+    </ul>
+  </section>
+
+  <section class="section section--tint container">
+    <QuoteForm heading="Request a Renovation Consultation" variant="repair" />
+  </section>
+
+  <section class="section container">
+    <h2>Renovation Throughout Southwest Florida</h2>
+    <p>Ocean Prime serves Naples, Bonita Springs, Estero, and Marco Island. <a href="/service-areas/">See our full service area &rarr;</a></p>
+  </section>
+
+  <section class="section section--tint container">
+    <h2>Renovation Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+
+  <section class="section">
+    <div class="container" style="text-align:center;">
+      <h2>Ready to Refresh Your Pool?</h2>
+      <p>Request a consultation and we'll discuss what's possible for your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request a Renovation Consultation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Ocean Prime</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .image-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+</style>

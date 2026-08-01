@@ -1,0 +1,85 @@
+---
+interface Props {
+  heading?: string;
+  subtext?: string;
+  buttonLabel?: string;
+  variant?: 'standard' | 'repair'; // repair variant swaps "service needed" for "equipment type"
+}
+
+const {
+  heading = 'Get a Free Pool Evaluation',
+  subtext = "Tell us about your pool and we'll follow up during business hours.",
+  buttonLabel = 'Get Me a Free Quote',
+  variant = 'standard',
+} = Astro.props;
+---
+
+<div class="quote-form card" id="quote-form">
+  <h3 class="quote-form__heading">{heading}</h3>
+  <p class="quote-form__subtext">{subtext}</p>
+
+  <!--
+    Production note: wire this to a serverless function or Netlify Forms
+    with honeypot + server-side validation per the brief's Section 20/29
+    requirements. Do not point this at a third-party endpoint that stores
+    customer data outside your control without review.
+  -->
+  <form name="quote-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="quote-request" />
+    <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" autocomplete="name" required />
+
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" autocomplete="tel" required />
+
+    {variant === 'standard' ? (
+      <>
+        <label for="address">Service Address or ZIP Code</label>
+        <input type="text" id="address" name="address" autocomplete="postal-code" required />
+
+        <label for="service">Service Needed</label>
+        <select id="service" name="service" required>
+          <option value="">Select one</option>
+          <option value="weekly">Weekly Cleaning</option>
+          <option value="repair">Repair</option>
+          <option value="both">Both</option>
+        </select>
+      </>
+    ) : (
+      <>
+        <label for="zip">Property ZIP Code</label>
+        <input type="text" id="zip" name="zip" autocomplete="postal-code" required />
+
+        <label for="equipment">Equipment Type</label>
+        <input type="text" id="equipment" name="equipment" value="Pool Pump" required />
+
+        <label for="problem">Problem Description</label>
+        <textarea id="problem" name="problem" required></textarea>
+      </>
+    )}
+
+    <label for="message">Message (optional)</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit" class="btn btn--primary btn--block">{buttonLabel}</button>
+    <p class="form-privacy-note">Your information is kept private and is never shared or sold.</p>
+  </form>
+</div>
+
+<style>
+  .quote-form__heading {
+    margin-bottom: 4px;
+  }
+
+  .quote-form__subtext {
+    font-size: var(--fs-small);
+    margin-bottom: var(--space-sm);
+  }
+
+  .hidden-field {
+    position: absolute;
+    left: -9999px;
+  }
+</style>

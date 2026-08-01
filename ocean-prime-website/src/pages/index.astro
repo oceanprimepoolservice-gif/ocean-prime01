@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import SectionDivider from '../components/SectionDivider.astro';
+import Icon from '../components/Icon.astro';
+import business from '../data/business.json';
+
+const faqs = [
+  { question: 'What is included in weekly pool service?', answer: 'Vacuuming, basket cleaning, chemical balancing, water testing, and a visual equipment check on every visit — with the exact details varying by plan.' },
+  { question: 'Are pool chemicals included?', answer: '[Needs confirmation — varies by plan]' },
+  { question: 'How often will my pool be serviced?', answer: 'Weekly, on a consistent schedule with the same standard of care every visit.' },
+  { question: 'Do I receive a report after each visit?', answer: 'Yes — every visit includes a digital report with water chemistry readings, completed tasks, and technician notes.' },
+  { question: 'Do you repair pool equipment?', answer: 'Yes — pumps, heaters, filters, salt systems, automation, and pool lighting.' },
+  { question: 'Do you service saltwater pools?', answer: 'Yes.' },
+  { question: 'Can you service a seasonal residence?', answer: 'Yes — Ocean Prime offers service options for both full-time and seasonal homeowners.' },
+  { question: 'Which areas do you serve?', answer: 'Naples, Bonita Springs, Estero, and Marco Island.' },
+];
+---
+
+<BaseLayout
+  title="Pool Service Naples, FL | Ocean Prime Pool Service"
+  description="Reliable weekly pool service in Naples, Bonita Springs, Estero & Marco Island. Balanced water, professional care, and a detailed report after every visit."
+  path="/"
+>
+  <!-- Hero -->
+  <section class="section container hero">
+    <p class="eyebrow">Locally Owned &middot; Licensed &amp; Insured &middot; Detailed Weekly Reports</p>
+    <h1>Reliable Pool Service in Naples, Bonita Springs, Estero &amp; Marco Island</h1>
+    <p style="font-size: var(--fs-body); max-width: 60ch;">
+      Enjoy a clean, balanced, worry-free pool with dependable weekly service, professional equipment care, and a detailed report after every visit.
+    </p>
+    <a href="#quote-form" class="btn btn--primary">Request Your Free Pool Evaluation</a>
+
+    <div class="hero-image-placeholder">
+      Real photo placeholder — clean residential pool
+      <!-- Replace with <img src="/images/hero-pool.jpg" alt="Clean residential pool serviced by Ocean Prime Pool Service in Naples, FL" width="1200" height="675" loading="eager" /> -->
+    </div>
+  </section>
+
+  <SectionDivider into="tint" />
+
+  <!-- Trust / positioning -->
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Southwest Florida's Trusted Partner for Worry-Free Pool Care</h2>
+      <p style="max-width: 70ch;">
+        Ocean Prime Pool Service helps homeowners throughout Naples, Bonita Springs, Estero, and Marco Island enjoy a clean, balanced pool without the guesswork. Whether you're in a gated community, a waterfront home, or a seasonal residence, our technicians bring consistent weekly care, clear communication, and a detailed report after every visit — so you always know exactly what was done.
+      </p>
+    </div>
+  </section>
+
+  <SectionDivider into="white" flip />
+
+  <!-- Embedded quote form -->
+  <section class="section container">
+    <QuoteForm />
+  </section>
+
+  <!-- Social proof -->
+  <section class="container" style="padding-bottom: var(--space-lg); display:flex; align-items:center; gap:8px;">
+    <span style="color: var(--color-ocean-blue); font-weight:500;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+    <span style="font-size: var(--fs-small); font-weight:500;">
+      {business.googleReviewRating} &middot; {business.googleReviewCount} Google Reviews &mdash; <a href="/reviews/">Read Our Reviews</a>
+    </span>
+  </section>
+
+  <SectionDivider into="tint" />
+
+  <!-- Customer frustrations -->
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Tired of Inconsistent Pool Service?</h2>
+      <ul style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2;">
+        <li>Missed visits with no notice</li>
+        <li>Recurring algae and cloudy water</li>
+        <li>Filters and baskets that never get cleaned</li>
+        <li>Technicians who don't communicate</li>
+        <li>Equipment problems discovered too late</li>
+      </ul>
+      <p>Ocean Prime provides dependable weekly care, professional equipment inspections, and a detailed report after every visit — so you never have to wonder whether your pool was actually serviced.</p>
+    </div>
+  </section>
+
+  <SectionDivider into="white" flip />
+
+  <!-- Featured services -->
+  <section class="section container">
+    <h2>How We Keep Your Pool Ready</h2>
+    <div style="display:grid; grid-template-columns: 1fr; gap: var(--space-sm);" class="grid-2">
+      <ServiceCard
+        icon="calendar"
+        title="Weekly Pool Service"
+        description="Consistent weekly cleaning, water testing, and equipment checks that keep your pool ready to swim."
+        href="/weekly-pool-service/"
+      />
+      <ServiceCard
+        icon="wrench"
+        title="Pool Equipment Repair"
+        description="Fast, professional repairs for pumps, heaters, filters, and salt systems from technicians who know Southwest Florida pools."
+        href="/pool-equipment-repair/"
+      />
+    </div>
+  </section>
+
+  <!-- Full service grid -->
+  <section class="section container">
+    <h2>Pool Repair &amp; Equipment Services</h2>
+    <div class="grid-3" style="display:grid; grid-template-columns: 1fr; gap: var(--space-sm);">
+      <ServiceCard icon="pump" title="Pool Pump Repair" description="Restore circulation, reduce noise, and prevent additional equipment damage." href="/pool-pump-repair/" />
+      <ServiceCard icon="heater" title="Pool Heater Repair" description="Get back to a comfortable swim temperature, fast." href="/pool-heater-repair/" />
+      <ServiceCard icon="filter" title="Filter Repair & Replacement" description="Cleaner water starts with a filter that actually works." href="/pool-filter-repair-replacement/" />
+      <ServiceCard icon="salt" title="Salt System Repair" description="Restore proper chlorine production and fix cell or flow issues." href="/salt-system-repair/" />
+      <ServiceCard icon="automation" title="Pool Automation Repair" description="Get your app-controlled pool functioning the way it should." href="/pool-automation-repair/" />
+      <ServiceCard icon="leaf" title="Green Pool Cleanup" description="Bring a neglected or algae-filled pool back to swim-ready condition." href="/green-pool-cleanup/" />
+    </div>
+    <p style="margin-top: var(--space-sm);"><a href="/pool-service-plans/">See weekly service plans &amp; pricing &rarr;</a></p>
+  </section>
+
+  <SectionDivider into="tint" />
+
+  <!-- Before/after gallery -->
+  <section class="section section--tint container">
+    <h2>See the Ocean Prime Difference</h2>
+    <div class="gallery-placeholder">Real before/after photo pairs &mdash; green pool cleanups work especially well here</div>
+  </section>
+
+  <!-- Service area -->
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Proudly Serving Southwest Florida</h2>
+      <p>Ocean Prime provides weekly pool service and equipment repair throughout Naples, Bonita Springs, Estero, and Marco Island.</p>
+      <div class="map-placeholder">Service area map preview &mdash; loads full interactive map on tap</div>
+    </div>
+  </section>
+
+  <SectionDivider into="white" flip />
+
+  <!-- Why Ocean Prime -->
+  <section class="section container">
+    <h2>Why Homeowners Choose Ocean Prime</h2>
+    <div class="why-us-grid">
+      <div class="why-us-item"><Icon name="report" size={20} /><span>A detailed digital report after every visit</span></div>
+      <div class="why-us-item"><Icon name="calendar" size={20} /><span>Consistent weekly care, not rotating technicians</span></div>
+      <div class="why-us-item"><Icon name="shield-check" size={20} /><span>If we ever miss a visit, you get a $20 credit &mdash; no excuses</span></div>
+      <div class="why-us-item"><Icon name="wrench" size={20} /><span>Professional equipment inspections that catch problems early</span></div>
+      <div class="why-us-item"><Icon name="droplet" size={20} /><span>Experienced repair technicians who know major equipment brands</span></div>
+      <div class="why-us-item"><Icon name="leaf" size={20} /><span>Local knowledge of Southwest Florida pools and climate</span></div>
+    </div>
+  </section>
+
+  <SectionDivider into="tint" />
+
+  <!-- How it works -->
+  <section class="section section--tint">
+    <div class="container">
+      <h2>Getting Started Is Easy</h2>
+      <ol style="color: var(--color-ink-secondary); font-size: var(--fs-small); line-height: 2; padding-left: 20px;">
+        <li><strong>Request an Evaluation</strong> &mdash; Tell us about your pool.</li>
+        <li><strong>Receive a Recommendation</strong> &mdash; We'll suggest the right plan for your needs.</li>
+        <li><strong>Enjoy Dependable Care</strong> &mdash; Sit back while we handle the rest.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CTA banner (ahead of FAQ, matching the reference structure) -->
+  <section class="section section--tint">
+    <div class="container" style="text-align:center;">
+      <h2>Ready for Dependable Pool Service?</h2>
+      <p>Request your free pool evaluation and discover which service plan is right for your pool.</p>
+      <div style="display:flex; gap: var(--space-xs); justify-content:center; flex-wrap:wrap;">
+        <a href="#quote-form" class="btn btn--primary">Request My Evaluation</a>
+        <a href={business.phoneHref} class="btn btn--outline">Call Now</a>
+      </div>
+    </div>
+  </section>
+
+  <SectionDivider into="white" flip />
+
+  <!-- FAQ -->
+  <section class="section container">
+    <h2>Frequently Asked Questions</h2>
+    <FAQAccordion items={faqs} />
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-image-placeholder {
+    margin-top: var(--space-md);
+    height: 240px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+    box-shadow: 0 12px 32px rgba(15, 123, 229, 0.1);
+  }
+
+  .map-placeholder {
+    margin-top: var(--space-sm);
+    height: 200px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+  }
+
+  .gallery-placeholder {
+    margin-top: var(--space-sm);
+    height: 200px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+    padding: 0 var(--space-md);
+  }
+
+  .why-us-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .why-us-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--color-ink-secondary);
+    font-size: var(--fs-small);
+    line-height: 1.5;
+  }
+
+  .why-us-item :global(svg) {
+    flex-shrink: 0;
+    color: var(--color-ocean-blue);
+    margin-top: 2px;
+  }
+
+  @media (min-width: 640px) {
+    .grid-2, .grid-3 {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .why-us-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .grid-3 {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+</style>

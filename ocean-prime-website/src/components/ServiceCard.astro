@@ -1,0 +1,57 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon?: 'pump' | 'heater' | 'filter' | 'salt' | 'automation' | 'light' | 'cleaning' | 'renovation' | 'calendar' | 'wrench' | 'droplet' | 'shield-check' | 'report' | 'phone' | 'leaf';
+}
+
+const { title, description, href, icon } = Astro.props;
+---
+
+<a href={href} class="card service-card">
+  {icon && (
+    <div class="service-card__icon">
+      <Icon name={icon} size={22} />
+    </div>
+  )}
+  <p class="service-card__title">{title}</p>
+  <p class="service-card__desc">{description}</p>
+</a>
+
+<style>
+  .service-card {
+    display: block;
+    color: inherit;
+  }
+
+  .service-card:hover {
+    text-decoration: none;
+    border-color: var(--color-ocean-blue);
+  }
+
+  .service-card__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-prime-blue-tint);
+    color: var(--color-ocean-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .service-card__title {
+    font-weight: 500;
+    color: var(--color-ink);
+    margin: 0 0 6px;
+  }
+
+  .service-card__desc {
+    font-size: var(--fs-small);
+    margin: 0;
+  }
+</style>

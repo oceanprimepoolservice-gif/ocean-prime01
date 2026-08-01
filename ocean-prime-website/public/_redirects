@@ -1,0 +1,14 @@
+# Redirects from the old oceanprimepoolservice.com URLs to the new site structure.
+# Netlify reads this file automatically. If hosting elsewhere, translate these
+# into your host's redirect config (e.g. nginx rewrite rules, .htaccess).
+
+/pool-cleaning-in-naples--fl          /pool-cleaning/                    301
+/pool-heater-repair-in-naples         /pool-heater-repair/               301
+/pool-repair-in-naples--fl            /pool-equipment-repair/            301
+/pool-filter-repair-in-naples--florida /pool-filter-repair-replacement/  301
+/pool-pump-repair-in-naples--fl       /pool-pump-repair/                 301
+/pool-renovation-in-naples-fl         /pool-renovation/                  301
+/green-pools                          /green-pool-cleanup/               301
+/about                                /about/                            301
+/contact                              /contact/                          301
+/blog                                 /blog/                             301

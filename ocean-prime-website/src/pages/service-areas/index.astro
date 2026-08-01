@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<BaseLayout
+  title="Service Areas | Ocean Prime Pool Service"
+  description="Ocean Prime Pool Service serves Naples, Bonita Springs, Estero, and Marco Island, Florida."
+  path="/service-areas/"
+>
+  <section class="section container">
+    <h1>Proudly Serving Southwest Florida</h1>
+    <p style="max-width: 60ch;">Ocean Prime provides weekly pool service and equipment repair throughout the following communities.</p>
+    <div class="map-placeholder">Service area map preview</div>
+  </section>
+
+  <section class="section section--tint container">
+    <div class="grid-2" style="display:grid; grid-template-columns: 1fr; gap: var(--space-sm);">
+      <ServiceCard title="Naples, FL" description="Weekly pool service and equipment repair in Naples." href="/service-areas/naples-fl/" />
+      <ServiceCard title="Bonita Springs, FL" description="Weekly pool service and equipment repair in Bonita Springs." href="/service-areas/bonita-springs-fl/" />
+      <ServiceCard title="Estero, FL" description="Weekly pool service and equipment repair in Estero." href="/service-areas/estero-fl/" />
+      <ServiceCard title="Marco Island, FL" description="Weekly pool service and equipment repair in Marco Island." href="/service-areas/marco-island-fl/" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .map-placeholder {
+    margin-top: var(--space-md);
+    height: 220px;
+    border-radius: var(--radius-card);
+    background: var(--color-prime-blue-tint);
+    border: 1px dashed var(--color-prime-blue-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-prime-blue);
+    font-size: var(--fs-small);
+  }
+  @media (min-width: 640px) {
+    .grid-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+</style>
