@@ -1,0 +1,122 @@
+---
+import business from '../data/business.json';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div class="site-footer__col">
+      <img src="data:image/png;base64,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" alt="Ocean Prime Pool Service" width="240" height="192" class="site-footer__logo" />
+      <p class="site-footer__brand sr-only">{business.businessName}</p>
+      <p><a href={business.phoneHref}>{business.phone}</a></p>
+      <p><a href={`mailto:${business.email}`}>{business.email}</a></p>
+      <p>{business.hours}</p>
+      <p class="site-footer__insurance">{business.insuranceStatement}</p>
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Service Areas</p>
+      {business.serviceAreas.map((area) => (
+        <p><a href={`/service-areas/${area.toLowerCase().replace(/\s+/g, '-')}-fl/`}>{area}</a></p>
+      ))}
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Pool Service</p>
+      <p><a href="/weekly-pool-service/">Weekly Pool Service</a></p>
+      <p><a href="/pool-service-plans/">Service Plans</a></p>
+      <p><a href="/green-pool-cleanup/">Green Pool Cleanup</a></p>
+      <p><a href="/pool-equipment-repair/">Equipment Repair</a></p>
+    </div>
+
+    <div class="site-footer__col">
+      <p class="site-footer__heading">Company</p>
+      <p><a href="/about/">About</a></p>
+      <p><a href="/reviews/">Reviews</a></p>
+      <p><a href="/contact/">Contact</a></p>
+      <p><a href="/privacy-policy/">Privacy Policy</a></p>
+      <p><a href="/terms-conditions/">Terms & Conditions</a></p>
+    </div>
+  </div>
+
+  <div class="container site-footer__bottom">
+    <p>&copy; {year} {business.businessName}. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-ink);
+    color: var(--color-white);
+    padding: var(--space-lg) 0 var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .site-footer__col p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: var(--fs-small);
+    margin: 0 0 8px;
+  }
+
+  .site-footer__col a {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .site-footer__col a:hover {
+    color: var(--color-prime-blue);
+  }
+
+  .site-footer__logo {
+    height: 44px;
+    width: auto;
+    margin-bottom: 12px;
+  }
+
+  .site-footer__brand {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--color-white) !important;
+  }
+
+  .site-footer__heading {
+    font-weight: 500;
+    color: var(--color-white) !important;
+    margin-bottom: 12px !important;
+  }
+
+  .site-footer__insurance {
+    margin-top: 12px !important;
+    font-size: 12px !important;
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+  }
+
+  .site-footer__bottom p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-footer__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>
