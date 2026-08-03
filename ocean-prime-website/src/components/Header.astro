@@ -1,0 +1,266 @@
+---
+import business from '../data/business.json';
+
+interface Props {
+  simplified?: boolean; // true on Ads landing pages — logo, phone, one CTA only
+}
+
+const { simplified = false } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="site-header__inner container">
+    <a href="/" class="site-header__logo">
+      <img src="data:image/png;base64,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" alt="Ocean Prime Pool Service" width="240" height="192" />
+    </a>
+
+    {simplified ? (
+      <a href={business.phoneHref} class="site-header__call-btn" aria-label={`Call ${business.phone}`}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    ) : (
+      <>
+        <nav class="site-header__nav" aria-label="Primary">
+          <div class="nav-item">
+            <button class="nav-item__trigger">Pool Service</button>
+            <div class="nav-item__dropdown">
+              <a href="/weekly-pool-service/">Weekly Pool Service</a>
+              <a href="/pool-cleaning/">Pool Cleaning</a>
+              <a href="/pool-maintenance/">Pool Maintenance</a>
+              <a href="/green-pool-cleanup/">Green Pool Cleanup</a>
+              <a href="/seasonal-vacation-pool-care/">Seasonal & Vacation Care</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <button class="nav-item__trigger">Repairs</button>
+            <div class="nav-item__dropdown">
+              <a href="/pool-equipment-repair/">Pool Equipment Repair</a>
+              <a href="/pool-pump-repair/">Pump Repair</a>
+              <a href="/pool-pump-replacement/">Pump Replacement</a>
+              <a href="/pool-heater-repair/">Heater Repair</a>
+              <a href="/pool-heater-installation/">Heater Installation</a>
+              <a href="/pool-filter-repair-replacement/">Filter Repair & Replacement</a>
+              <a href="/salt-system-repair/">Salt System Repair</a>
+              <a href="/pool-automation-repair/">Automation Repair</a>
+              <a href="/pool-light-repair/">Pool Light Repair</a>
+              <a href="/pool-renovation/">Pool Renovation</a>
+            </div>
+          </div>
+          <a href="/pool-service-plans/">Service Plans</a>
+          <div class="nav-item">
+            <button class="nav-item__trigger">Service Areas</button>
+            <div class="nav-item__dropdown">
+              <a href="/service-areas/naples-fl/">Naples</a>
+              <a href="/service-areas/bonita-springs-fl/">Bonita Springs</a>
+              <a href="/service-areas/estero-fl/">Estero</a>
+              <a href="/service-areas/marco-island-fl/">Marco Island</a>
+            </div>
+          </div>
+          <a href="/reviews/">Reviews</a>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+
+        <div class="site-header__actions">
+          <a href={business.phoneHref} class="site-header__call-btn" aria-label={`Call ${business.phone}`}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </a>
+          <button class="site-header__menu-btn" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+          </button>
+        </div>
+      </>
+    )}
+  </div>
+
+  {!simplified && (
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <a href="/weekly-pool-service/">Pool Service</a>
+      <a href="/pool-equipment-repair/">Repairs</a>
+      <a href="/pool-service-plans/">Service Plans</a>
+      <a href="/reviews/">Reviews</a>
+      <a href="/service-areas/">Service Areas</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  )}
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height-mobile);
+  }
+
+  .site-header__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-header__logo img {
+    height: 120px;
+    width: auto;
+    display: block;
+  }
+
+  .site-header__logo:hover {
+    text-decoration: none;
+  }
+
+  .site-header__nav {
+    display: none;
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .site-header__call-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-ocean-blue);
+    color: var(--color-white);
+  }
+
+  .site-header__call-btn:hover {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .site-header__menu-btn {
+    display: flex;
+    background: none;
+    border: none;
+    color: var(--color-ink);
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-white);
+  }
+
+  .mobile-menu a {
+    padding: 14px var(--space-sm);
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--fs-body);
+  }
+
+  .mobile-menu a:hover {
+    text-decoration: none;
+    background: var(--color-prime-blue-tint);
+  }
+
+  @media (min-width: 1024px) {
+    .site-header__inner {
+      height: var(--header-height-desktop);
+    }
+
+    .site-header__logo img {
+      height: 144px;
+    }
+
+    .site-header__nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .site-header__nav > a,
+    .nav-item__trigger {
+      font-family: var(--font-body);
+      font-size: var(--fs-small);
+      font-weight: 500;
+      color: var(--color-ink);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 0;
+    }
+
+    .site-header__nav > a:hover,
+    .nav-item__trigger:hover {
+      color: var(--color-prime-blue);
+      text-decoration: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item__dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--space-xs);
+      min-width: 220px;
+      box-shadow: 0 4px 12px rgba(22, 35, 46, 0.08);
+    }
+
+    .nav-item:hover .nav-item__dropdown,
+    .nav-item:focus-within .nav-item__dropdown {
+      display: block;
+    }
+
+    .nav-item__dropdown a {
+      display: block;
+      padding: 8px 12px;
+      font-size: var(--fs-small);
+      border-radius: 6px;
+      color: var(--color-ink);
+    }
+
+    .nav-item__dropdown a:hover {
+      background: var(--color-prime-blue-tint);
+      text-decoration: none;
+      color: var(--color-prime-blue);
+    }
+
+    .site-header__menu-btn {
+      display: none;
+    }
+
+    .mobile-menu {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.hasAttribute('hidden') === false;
+    if (isOpen) {
+      menu?.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      menu?.removeAttribute('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+</script>
